@@ -8,11 +8,11 @@ iris = datasets.load_iris()
 xTrain, xTest, yTrain, yTest = train_test_split(iris.data,iris.target,test_size=.4,random_state=0)
 
 #linear and rbf kernels
-clf1 = svm.SVC(kernel='rbf',C=1).fit(xTrain,yTrain)
-clf = svm.SVC(kernel='linear',C=1).fit(xTrain,yTrain)
+clf1 = svm.SVC(kernel='rbf',C=1).fit(xTest,yTest)
+clf = svm.SVC(kernel='linear',C=1).fit(xTest,yTest)
 modelGNB = GaussianNB()
 #naive bayes
-modelGNB.fit(xTrain, yTrain)
+modelGNB.fit(xTest, yTest)
 
 print("Accuracy of naive bayes on test set: {:.2f}".format(modelGNB.score(xTest,yTest)))
 print("Accuracy of SVM linear on test set: {:.2f}".format(clf.score(xTest,yTest)))
